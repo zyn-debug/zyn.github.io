@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="傅里叶变换法国工程师傅里叶指出，一个“任意”的周期函数x(t)可以分解为无穷多个不同频率的正弦信号的和，这既是傅里叶级数。求解傅里叶傅里叶系数的过程就是傅里叶变换。傅里叶级数（针对周期信号，要求信号在一个周期内的能量是有限的）和傅里叶变换（针对非周期信号，要求信号在整个时间区内的能量是有限的）又统称为傅里叶分析或谐波分析  1.连续时间的傅里叶变换其目的是以正弦函数(正弦和余弦函数统称为正弦函数)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="傅里叶变换法国工程师傅里叶指出，一个“任意”的周期函数x(t)可以分解为无穷多个不同频率的正弦信号的和，这既是傅里叶级数。求解傅里叶傅里叶系数的过程就是傅里叶变换。傅里叶级数（针对周期信号，要求信号在一个周期内的能量是有限的）和傅里叶变换（针对非周期信号，要求信号在整个时间区内的能量是有限的）又统称为傅里叶分析或谐波分析  1.连续时间的傅里叶变换其目的是以正弦函数(正弦和余弦函数统称为正弦函数)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570518499589.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628670223.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628921600.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628800530.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1569764477784.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570516957448.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570517220102.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570447068108.png">
+<meta property="article:published_time" content="2019-10-15T11:43:31.218Z">
+<meta property="article:modified_time" content="2019-10-15T11:43:31.218Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570518499589.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2.html" class="article-date">
+  <time datetime="2019-10-15T11:43:31.218Z" itemprop="datePublished">2019-10-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h1><p>法国工程师傅里叶指出，一个“任意”的周期函数x(t)可以分解为无穷多个不同频率的正弦信号的和，这既是傅里叶级数。求解傅里叶傅里叶系数的过程就是傅里叶变换。傅里叶级数（针对周期信号，要求信号在一个周期内的能量是有限的）和傅里叶变换（针对非周期信号，要求信号在整个时间区内的能量是有限的）又统称为傅里叶分析或谐波分析 </p>
+<h2 id="1-连续时间的傅里叶变换"><a href="#1-连续时间的傅里叶变换" class="headerlink" title="1.连续时间的傅里叶变换"></a>1.连续时间的傅里叶变换</h2><p>其目的是以正弦函数(正弦和余弦函数统称为正弦函数)或虚指数<br>$$<br>e^{jwt}<br>$$<br>为基本信号，将任意的连续时间信号表示为一系列不同频率的正弦函数或虚指数函数之和（对于周期信号）或积分（对于非周期信号）</p>
+<h2 id="2-离散时间信号的傅里叶变换（DTFT）"><a href="#2-离散时间信号的傅里叶变换（DTFT）" class="headerlink" title="2.离散时间信号的傅里叶变换（DTFT）"></a>2.<strong>离散时间信号的傅里叶变换</strong>（DTFT）</h2><p>它是以虚指数函数<br>$$<br>e^{j(\frac{2\pi}{N})kn}<br>$$<br>或<br>$$<br>e^{j\theta k}<br>$$<br>为基本信号，将任意离散时间信号表示为N个不同频率指数的虚指数之和（对于周期信号）或积分（对于非周期信号）。</p>
+<p>同时，为了实现用数字计算机进行傅里叶变换的计算，定义了<strong>离散傅里叶变换</strong>（DFT）</p>
+<p> 序列x[n]的离散时间傅里叶变换X(e^jw)是w的连续函数。由于数据在 MATLAB中以向量的形式存在,X(e^jw)只能在一个给定的离散频率的集合中计算。只有类似<br>$$<br>X(e^{jw})=\frac{p_0+p_1 e^{-jw}+…+p_M e^{-jwM}}{d_0+d_1 e^{-jw}+…+d_N e^{-jwN}}<br>$$<br>形式的e^(-jw)的有理函数,才能计算其离散时间傅里叶变换。</p>
+<p>在下面的练习中,我们将学习怎样用 MATLAB来求取并画出序列的离散时间傅里叶变换</p>
+<h3 id="例-计算离散时间傅里叶变换"><a href="#例-计算离散时间傅里叶变换" class="headerlink" title="例.计算离散时间傅里叶变换"></a>例.计算离散时间傅里叶变换</h3><p>如前面提到的式子所示,序列x[n]的离散时间傅里叶变换X(e^(jw)),可以用 MATLAB函数 freqz非常方便地在给定的L个离散频率点w=w_L处进行计算。由于X(e^jw)是w的连续函数,需要尽可能大地选取L的值,使得产生的图形和真实离散傅里叶变换的图形尽可能一致。在 MATLAB中, fretz计算出序列{p0 p1… pM}和序列{d0 d1…dN}的L点离散傅里叶变换,然后对其离散傅里叶变换值相比得到X(e^jw L),L=1,2,…,L。为更加方便快速地运算,应将L的值选为2的幂,如256或者512。</p>
+<p>例：离散时间傅里叶变换的原始序列为<br>$$<br>H(e^{jw})=\frac{2+e^{-jw}}{1-0.6e^{-jw}}<br>$$<br>实现代码  </p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Program P3_1</span></span><br><span class="line"><span class="comment">% 求取信号的离散时间傅里叶变换</span></span><br><span class="line">clf;</span><br><span class="line"><span class="comment">% 计算离散时间傅里叶变换的频率样本</span></span><br><span class="line">w = <span class="number">-4</span>*<span class="built_in">pi</span>:<span class="number">8</span>*<span class="built_in">pi</span>/<span class="number">511</span>:<span class="number">4</span>*<span class="built_in">pi</span>;  <span class="comment">%频率点</span></span><br><span class="line">num = [<span class="number">2</span> <span class="number">1</span>];  <span class="comment">%系统传递函数的分子的系数</span></span><br><span class="line">den = [<span class="number">1</span> <span class="number">-0.6</span>];  <span class="comment">%系统传递函数的分母的系数</span></span><br><span class="line">h = freqz(num, den, w);<span class="comment">%h为求取的滤波器频率响应函数</span></span><br><span class="line"><span class="comment">% 画出DTFT</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">real</span>(h));grid</span><br><span class="line">title(<span class="string">'H(e^&#123;j\omega&#125;)的实部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">imag</span>(h));grid</span><br><span class="line">title(<span class="string">' H(e^&#123;j\omega&#125;)的虚部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">pause  <span class="comment">%暂停，按任意键继续执行下面的操作</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h));grid</span><br><span class="line">title(<span class="string">' |H(e^&#123;j\omega&#125;)|幅度谱'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(h));grid</span><br><span class="line">title(<span class="string">'相位谱arg[H(e^&#123;j\omega&#125;)]'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570518499589.png" alt="1570518499589"></p>
+<p>例：计算有限长序列的离散时间傅里叶变换</p>
+<p>g[n]={1 3 5 7 9 11 13 15 17}</p>
+<p>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Program P3_1</span></span><br><span class="line"><span class="comment">% 求取有限长序列的离散时间傅里叶变换</span></span><br><span class="line">clf;</span><br><span class="line"><span class="comment">% 计算离散时间傅里叶变换的频率样本</span></span><br><span class="line">w = <span class="number">-4</span>*<span class="built_in">pi</span>:<span class="number">8</span>*<span class="built_in">pi</span>/<span class="number">511</span>:<span class="number">4</span>*<span class="built_in">pi</span>;  <span class="comment">%频率点</span></span><br><span class="line">a  = [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span> <span class="number">11</span> <span class="number">13</span> <span class="number">15</span> <span class="number">17</span> ];  <span class="comment">%系统传递函数的分子的系数  </span></span><br><span class="line"> h = freqz(a, <span class="number">1</span>, w);<span class="comment">%h为求取的滤波器频率响应函数，1为系统传递函数的分母的系数</span></span><br><span class="line"><span class="comment">% 画出DTFT</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">real</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">'H(e^&#123;j\omega&#125;)的实部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line"> ylabel(<span class="string">'振幅'</span>);   </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">imag</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">' H(e^&#123;j\omega&#125;)的虚部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">' |H(e^&#123;j\omega&#125;)|幅度谱'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(h));</span><br><span class="line">axis([<span class="number">0</span> <span class="number">1</span> <span class="number">-4</span> <span class="number">4</span>]);</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">'相位谱arg[H(e^&#123;j\omega&#125;)]'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628670223.png" alt="1570628670223"></p>
+<p>对相位谱截取[0,1]之间的图像发现明显的相位谱跳变。相位到一定负值就会跳变为正值，正弦信号的周期为2pi，即-pi到pi。所以，当低于-pi时就会自动加2kpi，发生相位跳变。<strong>unwrap</strong>命令可移除跳变。</p>
+<p>要计算一个系统相频特性，就要用到反正切函数，计算机中反正切函数规定，在一、二象限中的角度为0～pi，三四象限的角度为0～-pi。<br>若一个角度从0变到2pi，但实际得到的结果是0～pi，再由-pi～0，在w=pi处发生跳变，跳变幅度为2pi，这就叫相位的<strong>卷绕</strong>。<br>unwrap(  )就是<strong>解卷绕</strong>，使相位在pi处不发生跳变，从而反应出真实的相位变化 “<br>查看 unwrap 的帮助文档可以发现 unwrap 还可以输入一个参数 tol，默认tol = pi。也可以根据情况修改 tol。<br>参考链接：<a href="https://blog.csdn.net/zb1165048017/article/details/50381021" target="_blank" rel="noopener">https://blog.csdn.net/zb1165048017/article/details/50381021</a></p>
+<p>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 求取有限长序列的离散时间傅里叶变换，</span></span><br><span class="line"><span class="comment">%并对相位谱进行解卷绕</span></span><br><span class="line">clf;</span><br><span class="line"><span class="comment">% 计算离散时间傅里叶变换的频率样本</span></span><br><span class="line">w = <span class="number">-4</span>*<span class="built_in">pi</span>:<span class="number">8</span>*<span class="built_in">pi</span>/<span class="number">511</span>:<span class="number">4</span>*<span class="built_in">pi</span>;  <span class="comment">%频率点</span></span><br><span class="line">a  = [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span> <span class="number">11</span> <span class="number">13</span> <span class="number">15</span> <span class="number">17</span> ];  <span class="comment">%系统传递函数的分子的系数  </span></span><br><span class="line"> h = freqz(a, <span class="number">1</span>, w);<span class="comment">%h为求取的滤波器频率响应函数，1表示系统传递函数的分母的系数为1</span></span><br><span class="line"><span class="comment">% 画出DTFT</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">real</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">'H(e^&#123;j\omega&#125;)的实部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line"> ylabel(<span class="string">'振幅'</span>);   </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">imag</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">' H(e^&#123;j\omega&#125;)的虚部'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h));</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">' |H(e^&#123;j\omega&#125;)|幅度谱'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">y=<span class="built_in">unwrap</span>(<span class="built_in">angle</span>(h));</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,y);</span><br><span class="line">grid;</span><br><span class="line">title(<span class="string">'相位谱arg[H(e^&#123;j\omega&#125;)]'</span>)</span><br><span class="line">xlabel(<span class="string">'\omega /\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628921600.png" alt="1570628921600"></p>
+<p>未解卷绕之前图像</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570628800530.png" alt="1570628800530"></p>
+<h2 id="3-离散傅里叶变换（DFT）"><a href="#3-离散傅里叶变换（DFT）" class="headerlink" title="3.离散傅里叶变换（DFT）"></a>3.离散傅里叶变换（DFT）</h2><p>离散傅里叶变换指的是傅里叶变换在时域和频域上都呈离散的形式。在形式上，时域和频域上的序列都是有限长的，而实际上这两组序列都应当被认为是离散周期信号的主值序列。对于有限长的离散信号作DFT，可以把它看作是离散周期信号的一个周期，应进行周期延拓之后再进行计算。</p>
+<h3 id="用C语言实现DFT"><a href="#用C语言实现DFT" class="headerlink" title="用C语言实现DFT"></a>用C语言实现DFT</h3><p>设有限长序列的长度为N，对应的离散傅里叶变换定义为：<br>$$<br>f(n)=\sum_{k=0}^{N-1} f(k) e^{-j\frac{2\pi}{N}nk}<br>$$<br>我们用C语言实现DFT计算，实际就是求f(n)的值，也就是求信号的幅值。</p>
+<p>根据欧拉公式<br>$$<br>e^{j\theta}=cos\theta + jsin\theta<br>$$</p>
+<p>在c语言中复数由实部和虚部组成，代入DFT的计算式可以得到：<br>$$<br>f(n)=\sum_{k=0}^{N-1} f(k)cos(\frac{2\pi}{N}nk)-jsin(\frac{2\pi}{N}nk)<br>$$</p>
+<p>实现代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14159</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> real,imag;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N=<span class="number">32</span>;                  <span class="comment">//序列长度</span></span><br><span class="line"><span class="keyword">double</span> Squence[<span class="number">100</span>];       <span class="comment">//序列</span></span><br><span class="line"><span class="keyword">double</span> Amplitude[<span class="number">100</span>];     <span class="comment">//幅值</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">data</span> <span class="title">one</span>[32];</span>       <span class="comment">//单个数据</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">data</span> <span class="title">sum</span>;</span>           <span class="comment">//求和的结果</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;        </span><br><span class="line"><span class="keyword">int</span> k;        <span class="comment">//表示第k个数</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//产生一个长度为N的序列 第k个数的值为k</span></span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;N;k++)</span><br><span class="line">&#123;</span><br><span class="line">	Squence[k]=k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//进行DFT计算，并输出结果</span></span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;N;k++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//对sum赋初值</span></span><br><span class="line">	sum.real=<span class="number">0</span>;               </span><br><span class="line">    sum.imag=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//计算第k个点处的幅值</span></span><br><span class="line">	<span class="keyword">for</span>(n=<span class="number">0</span>;n&lt;N;n++)</span><br><span class="line">	&#123;</span><br><span class="line">		one[n].real = <span class="built_in">cos</span>(<span class="number">2</span>*PI/N*k*n)*Squence[n];  <span class="comment">//实部</span></span><br><span class="line">		one[n].imag = -<span class="built_in">sin</span>(<span class="number">2</span>*PI/N*k*n)*Squence[n]; <span class="comment">//虚部</span></span><br><span class="line"></span><br><span class="line">		sum.real += one[n].real;                   <span class="comment">//实部求和</span></span><br><span class="line">		sum.imag += one[n].imag;                   <span class="comment">//虚部求和</span></span><br><span class="line">	&#125;</span><br><span class="line">	Amplitude[k] = <span class="built_in">sqrt</span>(sum.real*sum.real+sum.imag*sum.imag);  <span class="comment">//计算幅值 sqrt（a^2+b^2）</span></span><br><span class="line">  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d \t%f\n"</span>,k,Amplitude[k]); <span class="comment">//输出计算结果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用tcc与gnuplot编译与做图</p>
+<p>在DFT.c的路径下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tcc DFT.c  <span class="comment">//将源文件编译生成为可执行文件DFT.exe</span></span><br><span class="line"></span><br><span class="line">DFT.exe &gt; DFT.txt <span class="comment">//通过重定向的方法，将执行结果产生的数据重新放到一个新的文件中</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1569764477784.png" alt="1569764477784"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gnuplot <span class="comment">//调用画图工具</span></span><br><span class="line"></span><br><span class="line">plot[<span class="number">0</span>:<span class="number">32</span>] [<span class="number">0</span>:<span class="number">120</span>]  <span class="string">"DFT.txt"</span> u <span class="number">1</span>:<span class="number">2</span> w l <span class="comment">//作出该信号的离散傅里叶变换的线状图</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570516957448.png" alt="1570516957448"></p>
+<h3 id="MATLAB实现DFT"><a href="#MATLAB实现DFT" class="headerlink" title="MATLAB实现DFT"></a>MATLAB实现DFT</h3><p>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%计算长度为32点的DFT</span></span><br><span class="line">N=<span class="number">32</span>;<span class="comment">%信号的长度</span></span><br><span class="line">x=[<span class="number">1</span>:N];<span class="comment">%定义存放信号的数组</span></span><br><span class="line">a=<span class="built_in">zeros</span>(<span class="number">1</span>,N);b=<span class="built_in">zeros</span>(<span class="number">1</span>,N);<span class="comment">%构造长度为N的序列</span></span><br><span class="line"><span class="keyword">for</span> k=<span class="number">0</span>:N<span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">0</span>:N<span class="number">-1</span></span><br><span class="line">        a(k+<span class="number">1</span>)=a(k+<span class="number">1</span>)+x(<span class="built_in">i</span>+<span class="number">1</span>)*<span class="built_in">cos</span>(<span class="number">2</span>*<span class="built_in">pi</span>*k*<span class="built_in">i</span>/N);<span class="comment">%DFT公式</span></span><br><span class="line">        b(k+<span class="number">1</span>)=b(k+<span class="number">1</span>)+x(<span class="built_in">i</span>+<span class="number">1</span>)*<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*k*<span class="built_in">i</span>/N);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">c(k+<span class="number">1</span>)=<span class="built_in">sqrt</span>(a(k+<span class="number">1</span>)^<span class="number">2</span>+b(k+<span class="number">1</span>)^<span class="number">2</span>);<span class="comment">%算出幅值</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">f=(<span class="number">0</span>:<span class="number">1</span>:N<span class="number">-1</span>);</span><br><span class="line"><span class="built_in">plot</span>(f,c,<span class="string">'r'</span>); <span class="comment">%画图</span></span><br><span class="line">axis([<span class="number">0</span> <span class="number">32</span> <span class="number">0</span> <span class="number">120</span>]);</span><br><span class="line">title(<span class="string">'DFT'</span>);xlabel(<span class="string">'k'</span>);ylabel(<span class="string">'x(k)'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570517220102.png" alt="1570517220102"></p>
+<h3 id="结果对比"><a href="#结果对比" class="headerlink" title="结果对比"></a>结果对比</h3><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1570447068108.png" alt="1570447068108"></p>
+<p>发现整体误差较小</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2.html" data-id="ck4z79c4z0004wwpqa9997vy2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/04/Hello/">Hello</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="音频信号MATLAB处理的一些常用函数1 wavrecord()：用来录制语音和音频信号。  例如：speech &#x3D; wavrecord(16000, 8000, 1, ‘double’);  采样的样点放入speech变量中，16000是要采样的点数，8000是采样率  1表示是mono信号， 2 sound()：用来播放语音和音频  例如：sound(speech，8000)；  其中，spe">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7MATLAB%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="音频信号MATLAB处理的一些常用函数1 wavrecord()：用来录制语音和音频信号。  例如：speech &#x3D; wavrecord(16000, 8000, 1, ‘double’);  采样的样点放入speech变量中，16000是要采样的点数，8000是采样率  1表示是mono信号， 2 sound()：用来播放语音和音频  例如：sound(speech，8000)；  其中，spe">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-27T13:35:17.220Z">
+<meta property="article:modified_time" content="2019-10-27T13:35:17.148Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7MATLAB%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0.html" class="article-date">
+  <time datetime="2019-10-27T13:35:17.220Z" itemprop="datePublished">2019-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="音频信号MATLAB处理的一些常用函数"><a href="#音频信号MATLAB处理的一些常用函数" class="headerlink" title="音频信号MATLAB处理的一些常用函数"></a>音频信号MATLAB处理的一些常用函数</h1><p>1 wavrecord()：用来录制语音和音频信号。<br>  例如：speech = wavrecord(16000, 8000, 1, ‘double’);<br>  采样的样点放入speech变量中，16000是要采样的点数，8000是采样率<br>  1表示是mono信号，</p>
+<p>2 sound()：用来播放语音和音频<br>  例如：sound(speech，8000)；<br>  其中，speech是要播放的声音矢量， 8000是采样率。</p>
+<p>3 fopen():打开一个指定的文件<br>  例如：fid = fopen(‘recording.pcm’, ‘r’);<br>  其中，recording.pcm是要打开的文件</p>
+<p>4 fread()：读取指定的文件的内容<br>  例如：speech = fread(fid, inf, ‘int16’, 0, ‘ieee-le’);<br>  其中，fid是要读取的文件的标识符，inf表示要读取整个文件，</p>
+<p>5 fclose():关闭指定的文件<br>  例如：fclose(fid);</p>
+<p>6 save:用来保存音频矢量到.mat文件中<br>  例如：save audio.mat speech<br>  就是把speech矢量保存到audio.mat文件中</p>
+<p>7 load：加载?mat文件到matlab工作环境中<br>  例如：load audio.mat<br>  就是把audio.mat文件加载到matlab工作环境中。</p>
+<p>8 filter():滤波函数<br>  例如：y = filter(b, 1, x);——FIR滤波器<br>  其中，b是滤波器系数的矢量，x和y是等长的输入和输出采样点矢量，<br>  y = filter(b, a, x);——IIR滤波器<br>  其中，a和b是滤波器系数的矢量，x和y也是等长的输入和输出采样点的矢量。</p>
+<p>9 fft():快速傅里叶变换函数<br>  例如：a_spec = fft(a_vector);或者a_spec = fft(a_vector，256)；——表示256点fft变换。<br>      或者a_spec = fft(a_vector(1:256));</p>
+<h1 id="matlab-读取处理-wav-文件"><a href="#matlab-读取处理-wav-文件" class="headerlink" title="matlab 读取处理 wav 文件"></a>matlab 读取处理 wav 文件</h1><p>相应的函数是 wavread()。 有下面的几种调用格式。</p>
+<p>y = wavread(‘filename’)<br>这是最简单的形式，将wav 文件中的波形数据读入 y 中，波形的幅度范围在[-1, 1]。</p>
+<p>[y,Fs,bits] = wavread(‘filename’)<br>Fs 存的是采样率，单位Hz，bits 是数据的位数。<br>[…] = wavread(‘filename’,N)<br>只读取前 N 个数据点。<br>[…] = wavread(‘filename’,[N1 N2])<br>只读取N1 到 N2 之间的数据。<br>siz = wavread(‘filename’,’size’)<br>读取wav文件有多少数据点，siz 为一个1行两列的向量。siz = [samples channels]<br>wavfinfo() 用来获取wav文件的信息。</p>
+<p>[m d] = wavfinfo(filename)<br>当 filename 是wav文件时 m 返回字符串’Sound (WAV) file’，否则返回空字符串。<br>d 返回包含wav 新的字符串，比如像这里给出的结果：’Sound (WAV) file containing: 41532 samples in 1 channel(s)’，如果filename 不是wav文件，则返回字符串’Not a WAVE file’。</p>
+<p>wavwrite 函数可以生成一个 wav 文件，有三种基本的调用格式。</p>
+<p>wavwrite(y,’filename’)<br>将 y 中的数据写入wav文件，其中y 的每一列对应一个声道。要求 y 中的数据在 [-1, 1]。超出这个范围的都被截断。采样率默认为 8000Hz。16 位格式。</p>
+<p>wavwrite(y,Fs,’filename’)<br>Fs 用来设定采样率。</p>
+<p>wavwrite(y,Fs,N,’filename’)<br>N 指定数据的位数，可以为 8、16、24和32。当 N ！=32时，wav文件按照PCM 码来存储。当N=32时，数据按照浮点数格式存储。这时也就不要求数据范围在-1到1 之间了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7MATLAB%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0.html" data-id="ck4z79c8x0006wwpq5ktfag44" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/04/Hello/">Hello</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

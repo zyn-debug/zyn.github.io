@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.离散时间傅里叶变换的卷积性质$$e^{-j w_{0} n} g[n] \stackrel{\mathrm{DTFT}}{\longrightarrow} G\left(e^{j\left(w-w_{0}\right)}\right)$$ 调用卷积函数conv（）和先对两个序列做离散时间傅里叶变换，再做乘积相比较 实现代码 12345678910111213141516171819202122">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/%E5%9F%BA%E4%BA%8EMATLAB%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.离散时间傅里叶变换的卷积性质$$e^{-j w_{0} n} g[n] \stackrel{\mathrm{DTFT}}{\longrightarrow} G\left(e^{j\left(w-w_{0}\right)}\right)$$ 调用卷积函数conv（）和先对两个序列做离散时间傅里叶变换，再做乘积相比较 实现代码 12345678910111213141516171819202122">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571638916739.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191024224214096.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571662251641.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571663714772.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571730794626.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571734296126.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571732673220.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571732691286.png">
+<meta property="article:published_time" content="2019-10-27T11:47:05.669Z">
+<meta property="article:modified_time" content="2019-10-24T14:55:03.564Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571638916739.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/%E5%9F%BA%E4%BA%8EMATLAB%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8.html" class="article-date">
+  <time datetime="2019-10-27T11:47:05.669Z" itemprop="datePublished">2019-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-离散时间傅里叶变换的卷积性质"><a href="#1-离散时间傅里叶变换的卷积性质" class="headerlink" title="1.离散时间傅里叶变换的卷积性质"></a>1.离散时间傅里叶变换的卷积性质</h2><p>$$<br>e^{-j w_{0} n} g[n] \stackrel{\mathrm{DTFT}}{\longrightarrow} G\left(e^{j\left(w-w_{0}\right)}\right)<br>$$</p>
+<p>调用卷积函数conv（）和先对两个序列做离散时间傅里叶变换，再做乘积相比较</p>
+<p>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% DTFT的卷积</span></span><br><span class="line">clf;</span><br><span class="line">w = -<span class="built_in">pi</span>:<span class="number">2</span>*<span class="built_in">pi</span>/<span class="number">255</span>:<span class="built_in">pi</span>;</span><br><span class="line">x1 = [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span> <span class="number">11</span> <span class="number">13</span> <span class="number">15</span> <span class="number">17</span>];</span><br><span class="line">x2 = [<span class="number">1</span> <span class="number">-2</span> <span class="number">3</span> <span class="number">-2</span> <span class="number">1</span>];</span><br><span class="line">y = conv(x1,x2);<span class="comment">%卷积</span></span><br><span class="line">h1 = freqz(x1, <span class="number">1</span>, w);<span class="comment">%求h1的离散傅里叶变换</span></span><br><span class="line">h2 = freqz(x2, <span class="number">1</span>, w);<span class="comment">%求h2的离散傅里叶变换</span></span><br><span class="line">hp = h1.*h2;<span class="comment">%h1与h2相乘</span></span><br><span class="line">h3 = freqz(y,<span class="number">1</span>,w);<span class="comment">%求卷积的离散傅里叶变换</span></span><br><span class="line"><span class="comment">%画出幅度谱的乘积</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(hp));grid</span><br><span class="line">title(<span class="string">'幅度谱的乘积'</span>)</span><br><span class="line"><span class="comment">%画出卷积后序列的幅度谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h3));grid</span><br><span class="line">title(<span class="string">'卷积后序列的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出相位谱的和</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(hp));grid</span><br><span class="line">title(<span class="string">'相位谱的和'</span>)</span><br><span class="line"><span class="comment">%画出卷积后序列的相位谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(h3));grid</span><br><span class="line">title(<span class="string">'卷积后序列的相位谱'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571638916739.png" alt="1571638916739"></p>
+<h2 id="2-离散时间傅里叶变换的时间反转性质"><a href="#2-离散时间傅里叶变换的时间反转性质" class="headerlink" title="2.离散时间傅里叶变换的时间反转性质"></a>2.离散时间傅里叶变换的时间反转性质</h2><p>$$<br>g[-n] \stackrel{\mathrm{DTFT}}{\longrightarrow} G\left(e^{-j w}\right)<br>$$</p>
+<p>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 离散傅里叶变换的时间反转性质</span></span><br><span class="line">clf;</span><br><span class="line">w = -<span class="built_in">pi</span>:<span class="number">2</span>*<span class="built_in">pi</span>/<span class="number">255</span>:<span class="built_in">pi</span>;</span><br><span class="line">num = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>];<span class="comment">%系统函数的分子多项式的系数</span></span><br><span class="line">L = <span class="built_in">length</span>(num)<span class="number">-1</span>;<span class="comment">%分母多项式系数矩阵的长度</span></span><br><span class="line">h1 = freqz(num, <span class="number">1</span>, w);<span class="comment">%求h1的离散时间傅里叶变换</span></span><br><span class="line">h2 = freqz(<span class="built_in">fliplr</span>(num), <span class="number">1</span>, w);<span class="comment">%求对h1进行反转后的离散时间傅里叶变换</span></span><br><span class="line">h3 = <span class="built_in">exp</span>(w*L*<span class="built_in">i</span>).*h2;<span class="comment">%对h2进行频移</span></span><br><span class="line"><span class="comment">%画出原序列的幅度谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h1));grid</span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'原序列的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出时间反转后的幅度谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(h2));grid</span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'时间反转后的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出原始序列的相位谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(h3));grid</span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'相位'</span>);</span><br><span class="line">title(<span class="string">'原始序列的相位谱'</span>)</span><br><span class="line"><span class="comment">%画出时间反转后的相位谱</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(h3));grid</span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'相位'</span>);</span><br><span class="line">title(<span class="string">'时间反转后的相位谱'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20191024224214096.png" alt="image-20191024224214096"></p>
+<h2 id="3-离散傅里叶变换和离散傅里叶逆变换的计算"><a href="#3-离散傅里叶变换和离散傅里叶逆变换的计算" class="headerlink" title="3.离散傅里叶变换和离散傅里叶逆变换的计算"></a>3.离散傅里叶变换和离散傅里叶逆变换的计算</h2><p>1.写一个MATLAB程序，计算并画出长度为N的L点离散博里叶变换X[k]的值，其中L&gt;=N，然后计算并画出L点离散傅里叶逆变换X[k]。对不同长度N和不同的离散傅里叶变换长度L，运行程序。讨论你的结果。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%DFT</span></span><br><span class="line"><span class="comment">%原始序列是x=[1 2 3...]，</span></span><br><span class="line"><span class="comment">%其长度由N决定</span></span><br><span class="line">clf;</span><br><span class="line">N=<span class="number">10</span>;L=<span class="number">20</span>;</span><br><span class="line"><span class="comment">% w1代表频率点</span></span><br><span class="line">wl=-<span class="built_in">pi</span>:<span class="number">2</span>*<span class="built_in">pi</span>/L:<span class="built_in">pi</span>;</span><br><span class="line">n=<span class="number">1</span>:L;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:L</span><br><span class="line">    w(<span class="built_in">i</span>)=wl(<span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">    x(<span class="built_in">i</span>)=<span class="built_in">i</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">xx=[x <span class="built_in">zeros</span>(<span class="number">1</span>,L-N)];</span><br><span class="line">y=fft(xx,L);</span><br><span class="line">xk=ifft(y,L);</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">abs</span>(y));</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'幅度谱'</span>);</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(w/<span class="built_in">pi</span>,<span class="built_in">angle</span>(y));</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br><span class="line">title(<span class="string">'相位谱'</span>);</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line">stem(n,xk);grid </span><br><span class="line">xlabel(<span class="string">'n'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'原始序列'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>实验结果</p>
+<p>N=10 L=20</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571662251641.png" alt="1571662251641"></p>
+<p>N=10 L=10</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571663714772.png" alt="1571663714772"></p>
+<p>2.用一个N点复数离散傅里叶变换计算两个长度为N的实数序列的N点离散傅里叶变换，并将结果同直接使用两个N点离散傅里叶变换得到的结果进行比较。</p>
+<p>   若g[n]和h[n]表示两个长度为N的实序列，G[k]和H[k]分别表示它们各自的N点离散傅里叶变换。定义x[n]= g[n]+ji[n]，那么x[n]为长度为N的复数序列，它的N点离散傅里叶变换X[k]，我们可以通过下式有效地计算G[k]和H[k]：<br>$$<br>\begin{aligned} G[k] &amp;=\frac{1}{2}\left(X[k]+X^{<em>}\left[(-k)_{N}\right]\right) \ H[k] &amp;=\frac{1}{2 j}\left(X[k]-X^{</em>}\left[(-k)_{N}\right]\right) \end{aligned}<br>$$<br>实现代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%用一个N点复数离散傅里叶变换</span></span><br><span class="line"><span class="comment">%计算两个长度为N的实数序列的N点离散傅里叶变换，</span></span><br><span class="line"><span class="comment">%并将结果同直接使用两个N点离散傅里叶变换得到的结果进行比较。</span></span><br><span class="line">clf;</span><br><span class="line">g=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span>];</span><br><span class="line">h=[<span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span>];</span><br><span class="line">N1=<span class="number">20</span>;N2=<span class="number">10</span>;</span><br><span class="line"><span class="comment">% w1代表频率点1</span></span><br><span class="line"><span class="comment">% w2代表频率点2</span></span><br><span class="line">w1=-<span class="built_in">pi</span>:<span class="number">2</span>*<span class="built_in">pi</span>/(N1<span class="number">-1</span>):<span class="built_in">pi</span>;</span><br><span class="line">w2=-<span class="built_in">pi</span>:<span class="number">2</span>*<span class="built_in">pi</span>/(N2<span class="number">-1</span>):<span class="built_in">pi</span>;</span><br><span class="line">x=g+<span class="number">1</span><span class="built_in">i</span>*h;     <span class="comment">%表示出x[n]</span></span><br><span class="line">x1=g<span class="number">-1</span><span class="built_in">i</span>*h;    <span class="comment">%表示出x[n]的共轭</span></span><br><span class="line">xk=fft(x,N2);  <span class="comment">%计算x[n]的离散傅里叶变换</span></span><br><span class="line">x1k=fft(x1,N2);<span class="comment">%计算x[n]共轭的离散傅里叶变换</span></span><br><span class="line"><span class="comment">%根据公式有效地计算g[n]和h[n]的离散傅里叶变换</span></span><br><span class="line">gk=<span class="number">1</span>/<span class="number">2</span>*(xk+x1k);</span><br><span class="line">hk=<span class="number">1</span>/(<span class="number">2</span>*<span class="number">1</span><span class="built_in">i</span>)*(xk-x1k);</span><br><span class="line"><span class="comment">%根据fft函数分别计算g[n]和h[n]的离散傅里叶变换</span></span><br><span class="line">gk1=fft(g,N2);</span><br><span class="line">hk1=fft(h,N2);</span><br><span class="line"><span class="comment">%画出G[k]的幅频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">stem(<span class="built_in">abs</span>(gk));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">70</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'G[k]的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出G[k]的相频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">stem(<span class="built_in">angle</span>(gk));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">-4</span>,<span class="number">4</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br><span class="line">title(<span class="string">'G[k]相位谱'</span>)</span><br><span class="line"><span class="comment">%画出H[k]的幅频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">stem(<span class="built_in">abs</span>(hk));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">200</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'H[k]的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出H[k]的相频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">stem(<span class="built_in">angle</span>(hk));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">-4</span>,<span class="number">4</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br><span class="line">title(<span class="string">'H[k]相位谱'</span>)</span><br><span class="line"><span class="comment">%画出G1[k]的幅频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">stem(<span class="built_in">abs</span>(gk1));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">70</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'G1[k]的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出G1[k]的相频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>)</span><br><span class="line">stem(<span class="built_in">angle</span>(gk1));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">-4</span>,<span class="number">4</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br><span class="line">title(<span class="string">'G1[k]相位谱'</span>)</span><br><span class="line"><span class="comment">%画出H1[k]的幅频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>)</span><br><span class="line">stem(<span class="built_in">abs</span>(hk1));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">200</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'振幅'</span>);</span><br><span class="line">title(<span class="string">'H1[k]的幅度谱'</span>)</span><br><span class="line"><span class="comment">%画出H1[k]的相频响应</span></span><br><span class="line">subplot(<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span>)</span><br><span class="line">stem(<span class="built_in">angle</span>(hk1));</span><br><span class="line">axis([<span class="number">0</span>,<span class="number">10</span>,<span class="number">-4</span>,<span class="number">4</span>]);</span><br><span class="line">grid </span><br><span class="line">xlabel(<span class="string">'\omega/\pi'</span>);</span><br><span class="line">ylabel(<span class="string">'以弧度为单位的相位'</span>);</span><br><span class="line">title(<span class="string">'H1[k]相位谱'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571730794626.png" alt="1571730794626"></p>
+<p>3.用两个N点离散傅里叶变换计算一个长度为2N的实数序列的2N点离散傅里叶变换，并将结果同直接使用一个2N点离散傳里叶变换得到的结果进行比较</p>
+<p>设v[n]是长度为2N的实序列，V[n]表示它的2N点离散傅里叶变换。将长度为N的两个实序列g[n]和h[n]分别定义为<br>$$<br>g[n]=v[2 n] \text { and } h[n]=v[2 n+1], \quad 0 \leqslant n&lt;N<br>$$<br>并且G[k]和H[k]表示它们的N点离散傅里叶变换，则v[n]的2N点离散傅里叶变换V[k]，可以自两个N点离散傅里叶变换G[A]和H[k]计算得到，即<br>$$<br>V[k]=G\left[(k)<em>{N}\right]+W</em>{2 N}^{k} H\left[(k)_{N}\right], \quad 0 \leqslant k \leqslant 2 N-1<br>$$<br>实现代码</p>
+<p>设定原序列为x=cos(n*pi/6)</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">N=<span class="number">6</span>; <span class="comment">%给定N的值 </span></span><br><span class="line">n=<span class="number">0</span>:<span class="number">2</span>*N<span class="number">-1</span>; <span class="comment">%设定n的范围 </span></span><br><span class="line">x=<span class="built_in">cos</span>(<span class="built_in">pi</span>/<span class="number">6.</span>*n); <span class="comment">%给定序列x[n] </span></span><br><span class="line">m=<span class="number">0</span>:N<span class="number">-1</span>; <span class="comment">%设定m的范围</span></span><br><span class="line">x1=<span class="built_in">cos</span>(<span class="built_in">pi</span>/<span class="number">6.</span>*(<span class="number">2</span>*m)); <span class="comment">%取n为偶数时x[n]的值组成序列x1[n] </span></span><br><span class="line">x2=<span class="built_in">cos</span>(<span class="built_in">pi</span>/<span class="number">6.</span>*(<span class="number">2</span>*m+<span class="number">1</span>)); <span class="comment">%取n为奇数时x[n]的值组成序列x2[n] </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>,</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)<span class="comment">%指定位置1，绘制序列x[n]</span></span><br><span class="line">stem(n,x);  </span><br><span class="line">xlabel(<span class="string">'n'</span>); <span class="comment">%设定序列x[n]的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'x'</span>);</span><br><span class="line">title(<span class="string">'原序列x[n]'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>)<span class="comment">%指定位置2，绘制序列x1[n]</span></span><br><span class="line">stem(m,x1);  </span><br><span class="line">xlabel(<span class="string">'m'</span>); <span class="comment">%设定序列x1[n]的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'x1'</span>);</span><br><span class="line">title(<span class="string">'取n为偶数时x[n]的值组成序列x1[n]'</span>)</span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>)<span class="comment">%指定位置3，绘制序列x2[n]</span></span><br><span class="line">stem(m,x2);  </span><br><span class="line">xlabel(<span class="string">'m'</span>); <span class="comment">%设定序列x2[n]的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'x2'</span>);</span><br><span class="line">title(<span class="string">'取n为奇数时x[n]的值组成序列x2[n]'</span>)</span><br><span class="line"></span><br><span class="line">k1=<span class="number">0</span>:N<span class="number">-1</span>; <span class="comment">%设定k1的范围 </span></span><br><span class="line">k2=<span class="number">0</span>:N<span class="number">-1</span>; <span class="comment">%设定k2的范围</span></span><br><span class="line">X1=fft(x1); <span class="comment">%求序列x1[n]的离散傅里叶变换</span></span><br><span class="line">X2=fft(x2); <span class="comment">%求序列x2[n]的离散傅里叶变换</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>,</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)<span class="comment">%指定位置1，绘制X1(k)</span></span><br><span class="line">stem(k1,<span class="built_in">real</span>(X1));  </span><br><span class="line">xlabel(<span class="string">'k1'</span>); <span class="comment">%设定X1(k)的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'X1'</span>);</span><br><span class="line">title(<span class="string">'序列x1[n]的离散傅里叶变换X1(k)'</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>) <span class="comment">%指定位置2，绘制X2(k)</span></span><br><span class="line">stem(k2,<span class="built_in">real</span>(X2)); </span><br><span class="line">xlabel(<span class="string">'k2'</span>); <span class="comment">%设定X2(k)的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'X2'</span>);</span><br><span class="line">title(<span class="string">'序列x2[n]的离散傅里叶变换X2(k)'</span>)</span><br><span class="line"> </span><br><span class="line">W=<span class="built_in">exp</span>(<span class="number">-1</span><span class="built_in">i</span>*<span class="built_in">pi</span>/N).^k2; <span class="comment">%给定W的值 </span></span><br><span class="line">Y=X1+X2.*W; <span class="comment">%给定Y</span></span><br><span class="line">X=fft(x);   <span class="comment">%求序列x[n]的离散傅里叶变换 </span></span><br><span class="line">k=<span class="number">0</span>:<span class="number">2</span>*N<span class="number">-1</span>;  <span class="comment">%设定k的范围 </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>,</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>) <span class="comment">%指定位置1，绘制X(k)</span></span><br><span class="line">stem(k,<span class="built_in">real</span>(X)); </span><br><span class="line">xlabel(<span class="string">'k'</span>); <span class="comment">%设定X(k)的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'X'</span>);</span><br><span class="line">title(<span class="string">'2N点离散傅里叶变换结果'</span>)  </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)<span class="comment">%指定位置2，绘制Y(k)</span></span><br><span class="line">stem(k1,<span class="built_in">real</span>(Y));  </span><br><span class="line">xlabel(<span class="string">'k1'</span>); <span class="comment">%设定Y(k)的横轴标注和纵轴标注 </span></span><br><span class="line">ylabel(<span class="string">'Y'</span>);</span><br><span class="line">title(<span class="string">'由两个N点离散傅里叶变换得到的结果'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p>图一   序列x[n],x1[n],x2[n] </p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571734296126.png" alt="1571734296126"></p>
+<p>图二 序列x1[n]和x2[n]的离散傅里叶变换X1(k)和X2(k) </p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571732673220.png" alt="1571732673220"></p>
+<p>图三  两种傅里叶变换结果比较 </p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1571732691286.png" alt="1571732691286"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/%E5%9F%BA%E4%BA%8EMATLAB%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8.html" data-id="ck4z79c7e0005wwpqdgs6232r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/04/Hello/">Hello</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
