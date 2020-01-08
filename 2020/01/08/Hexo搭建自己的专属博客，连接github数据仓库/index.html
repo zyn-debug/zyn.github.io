@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo搭建自己的专属博客，连接github数据仓库 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="@[toc] 1.安装Git、node.js、Hexo1.1 安装Git在 Windows 平台上安装 Git ，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行： 官网下载：https:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;win 选择合适自己的电脑版本下载 安装步骤参考：https:&#x2F;&#x2F;www.runoob.com&#x2F;git&#x2F;git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建自己的专属博客，连接github数据仓库">
+<meta property="og:url" content="http://yoursite.com/2020/01/08/Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%BF%9E%E6%8E%A5github%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="@[toc] 1.安装Git、node.js、Hexo1.1 安装Git在 Windows 平台上安装 Git ，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行： 官网下载：https:&#x2F;&#x2F;git-scm.com&#x2F;download&#x2F;win 选择合适自己的电脑版本下载 安装步骤参考：https:&#x2F;&#x2F;www.runoob.com&#x2F;git&#x2F;git">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103133145668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103133812282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103133846832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103133904899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103133925251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010313400089.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103134035614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103134046222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103143518662.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104091033417.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103144142830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104091225163.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104134925264.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103150912857.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135312913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135645161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135711569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135829360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135915858.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104135953400.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103163542349.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104140543922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010414061759.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104140700823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010414074128.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010316482472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103164926840.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104140901945.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104140937463.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020010319363014.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103194057853.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141024963.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103194658999.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103194747642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103195351781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103195612134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141354801.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141452599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141555484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141705374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200103210644495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104141812721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104142058639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104142016809.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104142246691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200104154355903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-01-08T00:29:23.144Z">
+<meta property="article:modified_time" content="2020-01-08T00:28:01.847Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200103133145668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hexo搭建自己的专属博客，连接github数据仓库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/08/Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%BF%9E%E6%8E%A5github%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" class="article-date">
+  <time datetime="2020-01-08T00:29:23.144Z" itemprop="datePublished">2020-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo搭建自己的专属博客，连接github数据仓库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>@[toc]</p>
+<h1 id="1-安装Git、node-js、Hexo"><a href="#1-安装Git、node-js、Hexo" class="headerlink" title="1.安装Git、node.js、Hexo"></a>1.安装Git、node.js、Hexo</h1><h2 id="1-1-安装Git"><a href="#1-1-安装Git" class="headerlink" title="1.1 安装Git"></a>1.1 安装Git</h2><p>在 Windows 平台上安装 Git ，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：</p>
+<p>官网下载：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 选择合适自己的电脑版本下载</p>
+<p>安装步骤参考：<a href="https://www.runoob.com/git/git-install-setup.html" target="_blank" rel="noopener">https://www.runoob.com/git/git-install-setup.html</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20200103133145668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。</p>
+<p>在开始菜单里找到”Git”-&gt;”Git Bash”，会弹出 Git 命令窗口，你可以在该窗口进行 Git 操作。</p>
+<h2 id="1-2-安装node-js"><a href="#1-2-安装node-js" class="headerlink" title="1.2 安装node.js"></a>1.2 安装node.js</h2><p>官网下载：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a> 选择合适自己的电脑版本下载<br>步骤 1 : 双击下载后的安装包 v0.10.26，如下所示：<br><img src="https://img-blog.csdnimg.cn/20200103133812282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="install-node-msi-version-on-windows-step1"><br>步骤 2 : 点击以上的Run(运行)，将出现如下界面：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200103133846832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>步骤 3 : 勾选接受协议选项，点击 next（下一步） 按钮 :<br><img src="https://img-blog.csdnimg.cn/20200103133904899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="install-node-msi-version-on-windows-step3"><br>步骤 4 : Node.js默认安装目录为 “C:\Program Files\nodejs&quot; , 你可以修改目录，并点击 next（下一步）：<br><img src="https://img-blog.csdnimg.cn/20200103133925251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>步骤 5 : 点击树形图标来选择你需要的安装模式 , 然后点击下一步 next（下一步）<br><img src="https://img-blog.csdnimg.cn/2020010313400089.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>步骤 6 :点击 Install（安装） 开始安装Node.js。你也可以点击 Back（返回）来修改先前的配置。 然后并点击 next（下一步）：<br><img src="https://img-blog.csdnimg.cn/20200103134035614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击 Finish 按钮退出安装向导。<br><img src="https://img-blog.csdnimg.cn/20200103134046222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="1-3-安装Hexo"><a href="#1-3-安装Hexo" class="headerlink" title="1.3 安装Hexo"></a>1.3 安装Hexo</h2><p>==（hexo是个静态页面生成、上传的工具）==</p>
+<p>hexo 可以理解为是基于node.js制作的一个博客工具，不是我们理解的一个开源的博客系统。</p>
+<p>hexo ，不需要部署到我们的服务器上，我们的服务器上保存的其实是基于在hexo通过markdown编写的文章，然后hexo帮我们生成静态的html页面，将生成的html上传到我们的服务器。</p>
+<p>（1）在电脑中新建一个文件夹存放自己的博客,名字自己起。例如：D盘里面新建一个 blog 的文件夹<br>（2）在文件夹内,鼠标右键点击，选择 Git Bash Here 。出现命令窗口<br><img src="https://img-blog.csdnimg.cn/20200103143518662.png" alt="在这里插入图片描述"><br>（3）之后点击Git Bash Here,则会出现如下所示界面。<br><img src="https://img-blog.csdnimg.cn/20200104091033417.png" alt="在这里插入图片描述"><br>（4）输入命令来安装hexo</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装后结果显示如下<br><img src="https://img-blog.csdnimg.cn/20200103144142830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>由于默认的 NPM 镜像实在太慢太慢，我们把源替换成淘宝的镜像，<br>需要注意的是，这一次切换是暂时的，如果下回从 npm 下载一些东西还是觉得非常慢，记得再执行一次这一条命令。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">config</span> <span class="built_in">set</span> registry <span class="string">"https://registry.npm.taobao.org"</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200104091225163.png" alt="在这里插入图片描述"></p>
+<h2 id="1-4-建立hexo站"><a href="#1-4-建立hexo站" class="headerlink" title="1.4 建立hexo站"></a>1.4 建立hexo站</h2><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init test  #初始化 ，会在原来的目录下新建一个test 的目录</span><br><span class="line">$ cd test #进入到Test 目录</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>初始化过程：<br><img src="https://img-blog.csdnimg.cn/20200104134925264.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入主目录<br><img src="https://img-blog.csdnimg.cn/20200103150912857.png" alt="在这里插入图片描述"><br>执行</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmp install</span><br></pre></td></tr></table></figure>
+<p>出现错误<br><img src="https://img-blog.csdnimg.cn/20200104135312913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决方案</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">npm install --ignore-scripts</span></span><br><span class="line"><span class="xml">npm install</span></span><br></pre></td></tr></table></figure>
+<p>成功安装npm<br><img src="https://img-blog.csdnimg.cn/20200104135645161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>新建完成后，指定文件夹的目录如下：<br><img src="https://img-blog.csdnimg.cn/20200104135711569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后在这个目录下，分别执行以下命令，来执行建站和启动站点。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo serve</span><br></pre></td></tr></table></figure>
+<p>建站<br><img src="https://img-blog.csdnimg.cn/20200104135829360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>启动hexo站点服务：<br><img src="https://img-blog.csdnimg.cn/20200104135915858.png" alt="在这里插入图片描述"><br>在浏览器输入<a href="http://localhost:4000/即可访问该静态界面，其结果如下所示：" target="_blank" rel="noopener">http://localhost:4000/即可访问该静态界面，其结果如下所示：</a><br><img src="https://img-blog.csdnimg.cn/20200104135953400.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="2-配置到github"><a href="#2-配置到github" class="headerlink" title="2.配置到github"></a>2.配置到github</h1><h2 id="2-1-github设置"><a href="#2-1-github设置" class="headerlink" title="2.1 github设置"></a>2.1 github设置</h2><p>(1). 在配置到GitHub之前务必确保之前已经注册了github账号，并且推荐使用邮箱注册，在<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>登陆自己账号。<br>点击右上角的<br><img src="https://img-blog.csdnimg.cn/20200103163542349.png" alt="在这里插入图片描述"><br>(2). 选择新建一个数据仓库，要注意的是Repository name命名为Owner.github.io<br>下图中是我的设置，完成之后即可点击Creat<br><img src="https://img-blog.csdnimg.cn/20200104140543922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>(3)创建完成之后，在主界面的右上角，点击Your profile，<br><img src="https://img-blog.csdnimg.cn/2020010414061759.png" alt="在这里插入图片描述"><br>(4)找到自己刚刚创建的仓库（恭喜你创建了自己的第一个数据仓）<br><img src="https://img-blog.csdnimg.cn/20200104140700823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>(5)点击进入该仓库界面，点击setting选项<br><img src="https://img-blog.csdnimg.cn/2020010414074128.png" alt="在这里插入图片描述"><br>(6)在setting中找到Theme Chooser,为我们的建站选择一个主题，<br><img src="https://img-blog.csdnimg.cn/2020010316482472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">点击即可到这界面，如下所示，选择一个喜欢的主题即可<br><img src="https://img-blog.csdnimg.cn/20200103164926840.png" alt="在这里插入图片描述"></p>
+<h2 id="2-2-Git设置"><a href="#2-2-Git设置" class="headerlink" title="2.2 Git设置"></a>2.2 Git设置</h2><p>(1).在博客目录右键Git Bash Here，进入如下目录，开始设置Git信息</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">config</span> --global user.name <span class="string">" GitHub 用户名 "</span></span><br><span class="line">git <span class="built_in">config</span> --global user.email <span class="string">"github用户的邮箱"</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200104140901945.png" alt="在这里插入图片描述"><br>如果此处出现错误，重新初始化，再把之前的github的那个地址和邮箱再来一次</p>
+<p>将此路径设为主路径</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br><img src="https://img-blog.csdnimg.cn/20200104140937463.png" alt="在这里插入图片描述"></p>
+<h2 id="2-3生成SSH公钥和私钥"><a href="#2-3生成SSH公钥和私钥" class="headerlink" title="2.3生成SSH公钥和私钥"></a>2.3生成SSH公钥和私钥</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">" 邮箱地址 "</span></span><br></pre></td></tr></table></figure>
+<p>输入该命令，并且执行，接着输入三次Enter回车，即可完成密钥的生成。<br>例如我的是这样：<br><img src="https://img-blog.csdnimg.cn/2020010319363014.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>生成密钥位置：<br><img src="https://img-blog.csdnimg.cn/20200103194057853.png" alt="在这里插入图片描述"><br>将生成的密钥中的id_rsa.pub使用notepad打开，将其中的内容复制到粘贴板上，我们需要将配置到github上，实现免密登陆。</p>
+<h2 id="2-4-github设置"><a href="#2-4-github设置" class="headerlink" title="2.4 github设置"></a>2.4 github设置</h2><p>在github界面，选择settings进行设置<br><img src="https://img-blog.csdnimg.cn/20200104141024963.png" alt="在这里插入图片描述"><br>然后按照如下图示，进行操作将刚刚复制的密钥，粘贴入github中即可。<br><img src="https://img-blog.csdnimg.cn/20200103194658999.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>添加完成之后，出现一个已经配置好的，如下所示：<br><img src="https://img-blog.csdnimg.cn/20200103194747642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>接下来就要去复制我们创建的github仓库的地址，如下所示：<br><img src="https://img-blog.csdnimg.cn/20200103195351781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>红色部分就是我们需要的地址。将其复制到剪切板。<br>之后修改如下路径下的_config.yml文件<br><img src="https://img-blog.csdnimg.cn/20200103195612134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>将其使用notepad打开，将内容的最后的deploy属性改为这样（==一定注意格式对齐==）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git #部署的类型</span><br><span class="line">  repository: https:<span class="comment">//github.com/zyn-master/zyn-master.github.io.git # 仓库地址</span></span><br><span class="line">  branch: master #分支名称</span><br></pre></td></tr></table></figure>
+
+<p>这里边的地址就是刚刚我们复制的我们的创建的仓库的地址。完成之后，记得一定要将格式设置为utf-8，因为我们这里加入了中文注释，否则会出现乱码现象。</p>
+<h2 id="2-5-新建一篇博客"><a href="#2-5-新建一篇博客" class="headerlink" title="2.5 新建一篇博客"></a>2.5 新建一篇博客</h2><p>在博客目录执行如下语句，创建博客</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> post <span class="string">"Hello"</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200104141354801.png" alt="在这里插入图片描述"><br>在生成以及部署文章之前，需要安装一个 hexo-deployer-git 插件扩展<br>输入</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>其结果如下：<br><img src="https://img-blog.csdnimg.cn/20200104141452599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>执行下面的代码命令：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>将 hexo 项目以及文章托管到 GitHub 上<br><img src="https://img-blog.csdnimg.cn/20200104141555484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果是第一次安装的话会让你登陆一下<br><img src="https://img-blog.csdnimg.cn/20200104141705374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入自己的github账号密码就可以了，其成功界面如下所示：<br><img src="https://img-blog.csdnimg.cn/20200103210644495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>部署成功之后，访问</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//用户名.github.io #例如我的就是访问https://zyn-master.github.io/</span></span><br></pre></td></tr></table></figure>
+
+<p>就可看到,已经部署成功<br><img src="https://img-blog.csdnimg.cn/20200104141812721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="3-发布csdn博客到hexo博客"><a href="#3-发布csdn博客到hexo博客" class="headerlink" title="3.发布csdn博客到hexo博客"></a>3.发布csdn博客到hexo博客</h1><p>首先进入csdn博客编辑界面，然后选择右侧的导出为markdown文件<br><img src="https://img-blog.csdnimg.cn/20200104142058639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>将文件复制到hexo文件路径下的source文件夹里边，我的为下图<br><img src="https://img-blog.csdnimg.cn/20200104142016809.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后再打开Git Bash Here，输入命令</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200104142246691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>再访问  自己的数据仓 <a href="https://zyn-master.github.io/" target="_blank" rel="noopener">https://zyn-master.github.io/</a><br><img src="https://img-blog.csdnimg.cn/20200104154355903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjQ0Mjkx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>大功告成</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/08/Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%BF%9E%E6%8E%A5github%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" data-id="ck54kgxmn000090pqbiyda8eb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/04/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7MATLAB%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">音频信号MATLAB处理的一些常用函数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/08/Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%BF%9E%E6%8E%A5github%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">Hexo搭建自己的专属博客，连接github数据仓库</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7MATLAB%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">音频信号MATLAB处理的一些常用函数</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/%E5%9F%BA%E4%BA%8EMATLAB%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8/">基于MATLAB实现离散时间傅里叶变换的性质</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/Hello/">Hello</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
